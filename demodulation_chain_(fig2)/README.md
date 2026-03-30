@@ -29,5 +29,5 @@ python lora_chain.py
 
 
 <p align="center">
-<img src="drawio.png" alt="drawing2" width="600" border="1"/>
+<img src="drawio.png" alt="drawing2" width="600" style="border:1px solid black;/>
 </p>
