@@ -1,8 +1,11 @@
 # Reproducing LoRa modulation/demodulation
 
 This file shows the steps to reproduce fig.2:  
-![alt text](fig2.png)
-1. Creates a venv and install required packages
+<p align="center">
+<img src="fig2.png" alt="drawing" width="380"/>
+</p>
+1. Creates a venv and install required packages  
+
 ```bash
     python3 -m venv venv 
     source venv/bin/activate 
