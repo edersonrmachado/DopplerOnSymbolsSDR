@@ -15,14 +15,14 @@ estimation ŝ.</em></p>
     source venv/bin/activate 
     pip install -r requirements.txt
 ```
-2. Open `lora_chain.py` Specify a folder to save the  `.sgv` figures 
+2. Open `main.py` Specify a folder to save the  `.sgv` figures 
 ```python
-image_folder="/home/ederson/Desktop/figures/" # linux
+image_folder="/home/ederson/Desktop/figures/" 
 ```
 3. Run the code
    
 ```bash
-python lora_chain.py 
+python main.py 
 ```
 4. Open the drawio model file: `doppler_chain.drawio`, activate `Mathematical Typeseting` on the `Extra` menu and import the `.sgv` figures.
 
