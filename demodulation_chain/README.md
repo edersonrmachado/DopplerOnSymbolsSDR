@@ -2,7 +2,7 @@
 
 This file shows the steps to reproduce LoRa symbol modulation and demodulation and produce the plots as shown fig.2:  
 <p align="center">
-<img src="fig2.png" alt="drawing" width="450"/>
+<img src="figures/fig2.png" alt="drawing" width="450"/>
 </p>
 <p align="center"><em>FFig. 2. LoRa demodulation chain for a symbol s=10, with SF=7, B=125 kHz. The illustration includes the instantaneous frequency, FFT
 magnitude spectrum, and the complex baseband representation of the signal throughout the processing blocks, leading to the final symbol
@@ -29,5 +29,5 @@ python main.py
 
 
 <p align="center">
-<img src="drawio.png" alt="drawing2" width="600"/>
+<img src="drawio.png" alt="figures/drawing2" width="600"/>
 </p>
