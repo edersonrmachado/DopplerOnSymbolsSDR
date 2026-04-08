@@ -15,7 +15,7 @@ estimation ŝ.</em></p>
     source venv/bin/activate 
     pip install -r requirements.txt
 ```
-2. Open `main.py` Specify a folder to save the  `.sgv` figures 
+2. Open `src/main.py` and specify a folder to save the  `.sgv` figures 
 ```python
 image_folder="/home/ederson/Desktop/figures/" 
 ```
@@ -24,7 +24,7 @@ image_folder="/home/ederson/Desktop/figures/"
 ```bash
 python main.py 
 ```
-4. Open the drawio model file: `doppler_chain.drawio`, activate `Mathematical Typeseting` on the `Extra` menu and import the `.sgv` figures.
+4. Open the drawio model file: `docs/doppler_chain.drawio`, activate `Mathematical Typeseting` on the `Extra` menu and import the `.sgv` figures.
 
 
 

@@ -13,14 +13,15 @@ def normalized_frequency(in_vector,bw,fs):
         np.ndarray: normalized inst. frequency vector (length=in_vector-1),
                     in units relative to the bandwidth [-0.5 to 0.5]*bw if bw=fs.
     """
-    # aux vector 
+    
+    # auxiliar and argument vectors 
     aux_vec=[0] * (len(in_vector) - 1) 
-    # argument vector
     arg=[0] * (len(in_vector) - 1) 
+    
+    # calculate inst. freq. [rad/samples] and bw relative normalized freq.
     for n in range(len(in_vector)-1):
         aux_vec[n]=in_vector[n+1]*np.conj(in_vector[n])     
         arg[n]=np.angle(aux_vec[n]) 
-    # instantaneous freq. [rad/samples]
-    arg=np.array(arg)  
-    # instantaneous freq. normalized with bw
-    return arg*(fs/bw)/(2*np.pi) 
+    inst_frec=np.array(arg)  
+    norm_frec=inst_frec*(fs/bw)/(2*np.pi) 
+    return norm_frec 

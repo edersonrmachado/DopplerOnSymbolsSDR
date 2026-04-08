@@ -13,6 +13,7 @@ class LoraSymbolConfig:
         fs (Optional[float]): Sampling frequency [samples/s or Hz]. Default to `bw` if not provided.
         
     """
+    
     s: int
     sf: int
     bw: float

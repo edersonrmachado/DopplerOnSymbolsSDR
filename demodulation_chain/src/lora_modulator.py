@@ -1,4 +1,5 @@
 import numpy as np
+
 from classes import LoraSymbolConfig
 
 def generate_symbol(s,sf,bw,fs): 
@@ -14,14 +15,15 @@ def generate_symbol(s,sf,bw,fs):
         np.narray[complex]: `symb_vec`, the complex samples of a lora symbol 
     """
     
-    # number of samples
+    # number of samples and sampling period
     num_samples=2**sf 
-    # sampling period
     ts=1/fs 
+    
     # adjust num_samples with fs and calculates inversion point
     num_samples=int(num_samples*fs/bw) 
     sample_lim=int((num_samples-s)*(fs/bw)) 
-    # symbol vector
+    
+    # symbol vector generation
     symb_vec=[]
     for n in range(num_samples):
         if 0<=n<sample_lim:

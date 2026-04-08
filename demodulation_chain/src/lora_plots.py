@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 from lora_utils import normalized_frequency
 
+# save the plots on `image_folder` if true
 SAVE_PLOTS=True
 
 def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimated_symbol, image_folder):
@@ -11,10 +12,10 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     
     Args:
         symbol_config (LoraSymbolConfig): symbol config.
-        x (np.ndarray): symbol (dtype=complex128).
+        x (np.ndarray): entry symbol (dtype=complex128).
         y (np.ndarray): symbol with noise (dtype=complex128).
         x0_conj (np.ndarray): conjugate of s=0 (dtype=complex128).
-        dechirped (np.ndarray): dechirped (dtype=complex128).
+        dechirped (np.ndarray): dechirped symbol (dtype=complex128).
         fourier_transform (np.ndarray): final FFT (dtype=complex128). 
         estimated_symbol (np.int64): estimated symbol.      
         image_folder (str): to save figures.  
@@ -26,15 +27,11 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     fig_3='fig3.svg'
     fig_4='fig4.svg'
         
-    # calculates normalized frequency [-0.5 to 0.5] of bandwidth if fs=bw
-    freq_normal=normalized_frequency(x,symbol_cfg.bw, symbol_cfg.fs)
-    # calculates normalized frequency of the symbol with noise
+    # calculates normalized frequency of x, y, x0_conj and dechirped sig.
+    freq_normal_x=normalized_frequency(x,symbol_cfg.bw, symbol_cfg.fs)
     freq_normal_y=normalized_frequency(y,symbol_cfg.bw,symbol_cfg.fs) 
-    # calculates normalized frequency 
     freq_normal_x0_conj=normalized_frequency(x0_conj,symbol_cfg.bw, symbol_cfg.fs) 
-    # calculates normalized frequency of the dechirped signal
     freq_normal_dec=normalized_frequency(dechirped,symbol_cfg.bw, symbol_cfg.fs)
-    
     
     # number of samples adjustment with fs for plots
     num_samples=2**symbol_cfg.sf 
@@ -58,8 +55,9 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     fontsize_yticks_bw=28
     pad_ylabel_fft=3
     
-    # fig. 1 
+    # fig. 1 modulated symbol x[n]
     fig1=plt.figure(figsize=(fig_width, fig_height),dpi=300,facecolor=fig_facecolor) 
+    
     # freq x[n]
     ax = fig1.add_subplot(2, 1, 1)
     ax.set_yticks([-0.5,  0.5])
@@ -68,10 +66,12 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     ax.set_xticklabels([0,n_samples-1],fontsize=fontsize_xticks)
     ax.set_ylabel('Frequency',fontsize=fontsize_ylabel,labelpad=pad_ylabel)
     ax.set_xlabel('n samples',labelpad=pad_xlabel,fontsize=fontsize_xlabel)
-    ax.plot(freq_normal, marker='o',markersize=marker_size)
+    ax.plot(freq_normal_x, marker='o',markersize=marker_size)
+    
     # border width
     for spine in ax.spines.values():
         spine.set_linewidth(border_width)
+    
     # real imag x[n] 
     ax = fig1.add_subplot(2, 1, 2)
     ax.set_yticks([-1, 1])  
@@ -82,17 +82,20 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     ax.set_ylabel('Amplitude',fontsize=fontsize_ylabel,labelpad=pad_ylabel)
     ax.plot(np.real(x),label='Real',lw=lwid_plots)
     ax.plot(np.imag(x),label='Imag.',color="lightcoral",lw=lwid_plots)
+    
     # border width
     for spine in ax.spines.values(): 
         spine.set_linewidth(border_width)  
     fig1.subplots_adjust(hspace=vert_space_plots)
+    
     # save option
     if SAVE_PLOTS:
         plt.savefig(image_folder+fig_1,bbox_inches='tight') 
     
-    # fig. 2
+    # fig. 2 symbol with noise y[n]
     fig2=plt.figure(figsize=(fig_width, fig_height),dpi=300,facecolor=fig_facecolor) 
-    #  freq y[n] (x[n] with noise)
+    
+    #  freq y[n] 
     ax = fig2.add_subplot(2, 1, 1)
     ax.set_yticks([-0.5,  0.5])
     ax.set_xticks([0,n_samples-1])
@@ -100,9 +103,11 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     ax.set_yticklabels(['-'+r'$\frac{B}{2}$',r'$\frac{B}{2}$'],fontsize=fontsize_yticks_bw)
     ax.set_xlabel('n samples',labelpad=pad_xlabel,fontsize=fontsize_xlabel)
     ax.plot(freq_normal_y, marker='o',markersize=marker_size)
+    
     # border width
     for spine in ax.spines.values():
         spine.set_linewidth(border_width)
+    
     # real imag y[n]
     ax = fig2.add_subplot(2, 1, 2)
     ax.set_yticks([-1, 1])  
@@ -115,11 +120,14 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     for spine in ax.spines.values():
         spine.set_linewidth(border_width)  
     fig2.subplots_adjust(hspace=vert_space_plots)
+    
+    # save option
     if SAVE_PLOTS:
         plt.savefig(image_folder+fig_2,bbox_inches='tight') 
             
     # fig. 3 dechirped signal
     fig3=plt.figure(figsize=(fig_width, fig_height),dpi=300,facecolor=fig_facecolor) 
+    
     #  freq dechirped
     freq_normal_dec = np.round(freq_normal_dec, 6)
     ax = fig3.add_subplot(2, 1, 1)
@@ -132,9 +140,11 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     ax.set_yticklabels(['0','B'],fontsize=fontsize_yticks)
     ax.set_xlabel('n samples',labelpad=pad_xlabel,fontsize=fontsize_xlabel)
     ax.plot(freq_normal_dec, marker='o',markersize=marker_size)
+    
     # border width
     for spine in ax.spines.values():
         spine.set_linewidth(border_width)  
+    
     # real imag dechirped
     ax = fig3.add_subplot(2, 1, 2)
     ax.set_yticks([-1, 1])  
@@ -144,16 +154,19 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     ax.set_xlabel('n samples',labelpad=pad_xlabel,fontsize=fontsize_xlabel)
     ax.plot(np.real(dechirped),label='Real',lw=lwid_plots)
     ax.plot(np.imag(dechirped),label='Imag.',color="lightcoral",lw=lwid_plots)
+    
     # border width
     for spine in ax.spines.values():
         spine.set_linewidth(border_width)  
     fig3.subplots_adjust(hspace=vert_space_plots)
+    
     # save option
     if SAVE_PLOTS:
         plt.savefig(image_folder+fig_3,bbox_inches='tight') 
         
     # fig 4 final FFT
     fig4=plt.figure(figsize=(fig_width, fig_height),dpi=300,facecolor=fig_facecolor) 
+    
     ax = fig4.add_subplot(2, 1, 1)
     ax.set_yticks([ 0, 2**symbol_cfg.sf])
     ax.set_yticklabels([0,2**symbol_cfg.sf],fontsize=fontsize_yticks)
@@ -168,10 +181,13 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     ax.set_xticks(new_ticks) 
     ax.set_xticks([0,estimated_symbol,n_samples-1])
     ax.set_xticklabels(['',estimated_symbol, n_samples-1],fontsize=fontsize_xticks)
+    
     # border width
     for spine in ax.spines.values():
         spine.set_linewidth(border_width)  
     fig4.subplots_adjust(hspace=vert_space_plots)
+    
+    # save option
     if SAVE_PLOTS:
         plt.savefig(image_folder+fig_4,bbox_inches='tight') 
     
