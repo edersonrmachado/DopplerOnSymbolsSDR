@@ -5,7 +5,7 @@ This file shows the steps to reproduce  fig.3:
 <p align="center">
 <img src="figures/fig3.png" alt="drawing" width="350"/>
 </p>
-<p align="center"><em>Fig. 3:Example of δF (t) and δF(t) curves for a satellite with
+<p align="center"><em>Fig. 3: Example of δF (t) and δF(t) curves for a satellite with
 H=500 km and 10 minutes pass, with ≈ ±23.5 ppm and 0.36 ppm/s
 maximum values.</em></p>
 
