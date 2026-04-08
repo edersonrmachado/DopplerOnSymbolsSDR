@@ -29,5 +29,5 @@ python main.py
 
 
 <p align="center">
-<img src="drawio.png" alt="figures/drawing2" width="600"/>
+<img src="figures/drawio.png" alt="drawing2" width="600"/>
 </p>
