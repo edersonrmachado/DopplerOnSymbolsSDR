@@ -42,6 +42,7 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     fig_width=3.5
     fig_height=6.2
     fig_facecolor="#F7F7F7"
+    dpi_set=600
     fontsize_xticks=23
     lwid_plots=3.5
     border_width=1.5
@@ -56,7 +57,7 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     pad_ylabel_fft=3
     
     # fig. 1 modulated symbol x[n]
-    fig1=plt.figure(figsize=(fig_width, fig_height),dpi=300,facecolor=fig_facecolor) 
+    fig1=plt.figure(figsize=(fig_width, fig_height),dpi=dpi_set,facecolor=fig_facecolor) 
     
     # freq x[n]
     ax = fig1.add_subplot(2, 1, 1)
