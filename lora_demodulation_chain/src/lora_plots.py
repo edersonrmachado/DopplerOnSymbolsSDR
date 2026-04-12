@@ -10,7 +10,7 @@ def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimate
     """Generate plots and save [opt].
     
     Args:
-        symbol_config (LoraSymbolConfig): symbol config.
+        symbol_cfg (LoraSymbolConfig): symbol config.
         x (np.ndarray): entry symbol (dtype=complex128).
         y (np.ndarray): symbol with noise (dtype=complex128).
         x0_conj (np.ndarray): conjugate of s=0 (dtype=complex128).
