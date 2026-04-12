@@ -9,8 +9,7 @@ SAVE_PLOTS=True
 fig_1='packet_format.pdf'
 
 def plot_packet(samples_cfg, samples, image_folder):
-    """ 
-    Generate plots and save [opt].
+    """Generate plots and save [opt].
     
     Args:
         samples: complex64 samples vector.

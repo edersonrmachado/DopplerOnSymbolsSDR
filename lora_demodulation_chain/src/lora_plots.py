@@ -7,8 +7,7 @@ from lora_utils import normalized_frequency
 SAVE_PLOTS=True
 
 def plot_signals(symbol_cfg, x, y, x0_conj,dechirped, fourier_transform,estimated_symbol, image_folder):
-    """ 
-    Generate plots and save [opt].
+    """Generate plots and save [opt].
     
     Args:
         symbol_config (LoraSymbolConfig): symbol config.

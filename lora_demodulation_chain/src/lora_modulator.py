@@ -3,8 +3,7 @@ import numpy as np
 from lora_classes import LoraSymbolConfig
 
 def generate_symbol(s,sf,bw,fs): 
-    """ 
-    Generate a LoRa symbol
+    """Generate a LoRa symbol
     
     Args:
         s (int): symbol.

@@ -2,8 +2,7 @@ import numpy as np
 
 
 def normalized_frequency(in_vector,bw,fs):
-    """ 
-    Calculates normalized frequency of a complex vector
+    """Calculates normalized frequency of a complex vector
     
     Args:
         in_vector (complex): entry vector.

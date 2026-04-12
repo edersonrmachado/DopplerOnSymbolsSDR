@@ -4,8 +4,7 @@ import numpy as np
 DEBUG_PRINT=True
 
 def generate_awgn(vector,snr):
-    """ 
-    Generate AWGN noise vector according to SNR and an input vector
+    """Generate AWGN noise vector according to SNR and an input vector
     
     Args:
         vector (complex): signal vector.

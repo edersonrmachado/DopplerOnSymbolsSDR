@@ -4,8 +4,7 @@ import os
 from packet_classes import LoraSamplesConfig
 
 def read_samples(file_name):
-    """ 
-    Reads complex64 samples from a binary .iq file.
+    """Reads complex64 samples from a binary .iq file.
 
     Args:
         file_name (str): Path to the .iq file.
