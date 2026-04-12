@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.fftpack import fft
 
-from classes import LoraSymbolConfig
+from lora_classes import LoraSymbolConfig
 from lora_modulator import generate_symbol
 from lora_channel import generate_awgn
 from lora_plots import plot_signals

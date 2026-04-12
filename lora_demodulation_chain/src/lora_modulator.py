@@ -1,6 +1,6 @@
 import numpy as np
 
-from classes import LoraSymbolConfig
+from lora_classes import LoraSymbolConfig
 
 def generate_symbol(s,sf,bw,fs): 
     """ 
