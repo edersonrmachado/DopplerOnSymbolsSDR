@@ -1,8 +1,8 @@
-### Reproducing LoRa modulation/demodulation
+### Impact of a frequency shift on a LoRa symbol
 
 This file shows the steps to reproduce the frequency shift effect on a LoRa symbol, shown in fig.4:  
 <p align="center">
-<img src="figures/fig4.png" alt="drawing" width="450"/>
+<img src="figures/fig4.png" alt="drawing" width="350"/>
 </p>
 <p align="center"><em>Fig. 4. FFT magnitude of dechirped signal on receiver, for five
 transmissions of symbol s = 50. The bin correspondent to the FFT

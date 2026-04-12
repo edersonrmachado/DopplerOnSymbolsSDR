@@ -1,4 +1,4 @@
-### Reproducing LoRa modulation/demodulation
+### Packet format illustrated in a real signal capture
 
 This file shows the steps to reproduce the LoRa packet format, shown in fig.1:  
 <p align="center">
