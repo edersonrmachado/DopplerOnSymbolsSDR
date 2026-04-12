@@ -16,7 +16,7 @@ B=250 kHz..</em></p>
     source venv/bin/activate 
     pip install -r requirements.txt
 ```
-2. Open `src/main.py` and specify a folder to save the  `.sgv` figures 
+2. Open `src/main.py` and specify a folder to save the figure. 
 ```python
 image_folder="/home/ederson/Desktop/figures/" 
 ```
