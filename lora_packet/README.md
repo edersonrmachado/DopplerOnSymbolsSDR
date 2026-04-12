@@ -1,6 +1,6 @@
 ### Reproducing LoRa modulation/demodulation
 
-This file shows the steps to reproduce the LoRa packet format, shown fig.1:  
+This file shows the steps to reproduce the LoRa packet format, shown in fig.1:  
 <p align="center">
 <img src="figures/fig1.png" alt="drawing" width="450"/>
 </p>
