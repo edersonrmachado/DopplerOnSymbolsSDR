@@ -5,7 +5,7 @@ This file shows the steps to reproduce the LoRa packet format, shown fig.1:
 <img src="figures/fig1.png" alt="drawing" width="450"/>
 </p>
 <p align="center"><em>Fig. 1. LoRa packet format highlighting preamble and information
-symbols. Extracted from a real signal with f0 =436 MHz, SF=11 and
+symbols. Extracted from a real signal with f0=436 MHz, SF=11 and
 B=250 kHz..</em></p>
 
 
