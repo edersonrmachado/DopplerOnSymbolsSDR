@@ -3,7 +3,7 @@
 This file shows the steps evaluates the impact of a frequency shift in the demodulation process of a LoRa symbol, reproducing the results shown in fig.4:  
 
 <p align="center">
-<img src="figures/fig4.png", alt="drawing", width="350"/>
+<img src="figures/fig4.png", alt="drawing", width="250"/>
 </p>
 
 <p align= "center" ><em>Fig. 4. FFT magnitude of dechirped signal on receiver, for five transmissions of symbol s = 50. The bin correspondent to the FFT energy peak changes ⌊m⌉ units accordingly to each CFO value.

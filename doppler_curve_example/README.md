@@ -3,7 +3,7 @@
 This file shows the steps to calculate the Doppler shift and rate for a LEO satellite pass, reproducing the  fig.3:  
 
 <p align="center">
-<img src="figures/fig3.png", alt="drawing", width="320"/>
+<img src="figures/fig3.png", alt="drawing", width="250"/>
 </p>
 
 <p align="center"><em>Fig. 3: Example of δF (t) and δF(t) curves for a satellite with H=500 km and 10 minutes pass, with ≈ ±23.5 ppm and 0.36 ppm/s maximum values.</em></p>

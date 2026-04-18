@@ -3,7 +3,7 @@
 This file shows the steps to reproduce the LoRa packet format from a real signal capture, as shown in fig. 1.
 
 <p align="center">
-<img src="figures/fig1.png", alt="drawing", width="450"/>
+<img src="figures/fig1.png", alt="drawing", width="250"/>
 </p>
 
 <p align="center"><em>Fig. 1. LoRa packet format highlighting preamble and information symbols. Extracted from a real signal with f0=436 MHz, SF=11 and B=250 kHz..</em></p>
