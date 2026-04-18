@@ -31,5 +31,5 @@ python main.py
 4. Open the drawio model file: `docs/doppler_chain.drawio`, activate `Mathematical Typeseting` on the `Extra` menu and import the `.sgv` figures:
 
 <p align="center">
-<img src="figures/drawio.png", alt="drawing2" width="450"/>
+<img src="figures/drawio.png", alt="drawing2" width="600"/>
 </p>
