@@ -5,9 +5,10 @@ import matplotlib.pyplot as plt
 # save the plots on `image_folder` if true
 SAVE_PLOTS=True
 
-#def doppler_plots(rel_doppler_shift,rel_doppler_rate,time_vec, image_folder):
+
 def plot_doppler(rel_doppler_shift,rel_doppler_rate,time_vec, image_folder):
-    """Generate plots and save [opt].
+    """
+    Generate plots and save [opt].
     
     Args:
         rel_doppler_shift (np.ndparray): doppler shift vector.

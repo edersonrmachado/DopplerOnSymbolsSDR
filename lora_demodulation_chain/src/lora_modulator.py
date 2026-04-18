@@ -6,12 +6,12 @@ def generate_symbol(s,sf,bw,fs):
     """Generate a LoRa symbol
     
     Args:
-        s (int): symbol.
+        s (int): symbol value.
         sf (int): spreading factor.
         bw (float): bandwidth in Hz.
         fs (float): sampling frequency samples/s.
     Returns:
-        np.narray[complex]: `symb_vec`, the complex samples of a lora symbol 
+        np.narray[complex]: `symb_vec`, the complex samples of a lora symbol.
     """
     
     # number of samples and sampling period

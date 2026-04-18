@@ -8,7 +8,8 @@ LIGHTSPEED = 299792458
 
 
 def relative_doppler_shift(H,t):
-    """Calculate relative doppler shift according to simplified equation
+    """
+    Calculate relative doppler shift according to simplified equation.
 
     Args:
         H (float): satellite altitude in meters.
@@ -23,5 +24,5 @@ def relative_doppler_shift(H,t):
     return rel_doppler_shift*1e6
 
 def relative_doppler_rate(rel_doppler_shift,dt): 
-    '''Calculate relative Doppler rate ppm/s'''
+    """Calculate relative Doppler rate ppm/s."""
     return np.gradient(rel_doppler_shift, dt)

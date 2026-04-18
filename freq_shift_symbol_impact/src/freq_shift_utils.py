@@ -4,12 +4,14 @@ from lora_classes import LoraSymbolConfig
 
 
 def analytical_dechirping(symbol_cfg,cfo_int,cfo_frac):
-    """Applies analytical dechirping 
+    """
+    Applies analytical dechirping. 
 
     Args:
         symbol_cfg (LoraSymbolConfig): symbol config.
         cfo_int (int): carrier frequency offset integer part.
         cfo_frac (float): carrier frequency offset fractional part.
+    
     Returns:
         analytical_dec (np.ndarray): analytical dechirp. vector (np.complex64)
         m_value (np.ndarray): m value (int64) 

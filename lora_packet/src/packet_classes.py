@@ -4,7 +4,8 @@ from typing import Optional
 
 @dataclass
 class LoraSamplesConfig:
-    """LoRa  config for file samples
+    """
+    LoRa  config for file samples
     
     Attributes:
         freq (float): Symbol value.

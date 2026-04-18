@@ -10,7 +10,8 @@ LEGEND=True
 fig_1='freq_shift_symbol_impact.pdf'
 
 def plot_freq_shift(fft_abs_vec, est_symb_vec,cfo_int_values,cfo_frac_values,m_values,image_folder):
-    """Generate plots and save [opt].
+    """
+    Generate plots and save [opt].
     
     Args:
         fft_abs_vec (list of np.ndarray): list of ffts (complex64).

@@ -9,14 +9,15 @@ SAVE_PLOTS=True
 fig_1='packet_format.pdf'
 
 def plot_packet(samples_cfg, samples, image_folder):
-    """Generate plots and save [opt].
+    """
+    Generate plots and save [opt].
     
     Args:
-        samples: complex64 samples vector.
+        samples: samples vector (complex64).
         image_folder (str): to save figure.  
     """
     
-    # set plot  fonts
+    # set plot fonts
     plt.rcParams['mathtext.fontset'] = 'stix'
     plt.rcParams['font.family'] = 'STIXGeneral'
     

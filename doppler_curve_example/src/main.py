@@ -7,13 +7,13 @@ from doppler_plots import plot_doppler
 image_folder="/home/ederson/Desktop/figures/" 
 
 SAT_ALTITUDE=500000
-TIME_INTERVAL=300 
+TIME_INTERVAL=600 
 
 if __name__ == '__main__':
     
     # creates time vector
     num_points=100000
-    time_vec = np.linspace(-TIME_INTERVAL, TIME_INTERVAL, num_points)
+    time_vec = np.linspace(-TIME_INTERVAL/2, TIME_INTERVAL/2, num_points)
     dt=time_vec[1]-time_vec[0] 
     
     # generate relative doppler shift vector in ppm

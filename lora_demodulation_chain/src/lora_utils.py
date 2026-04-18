@@ -2,12 +2,14 @@ import numpy as np
 
 
 def normalized_frequency(in_vector,bw,fs):
-    """Calculates normalized frequency of a complex vector
+    """
+    Calculate normalized frequency of a complex vec.
     
     Args:
         in_vector (complex): entry vector.
         bw (float): bandwidth in Hz.
         fs (float): sampling frequency samples/s.
+    
     Returns:
         np.ndarray: normalized inst. frequency vector (length=in_vector-1),
                     in units relative to the bandwidth [-0.5 to 0.5]*bw if bw=fs.
