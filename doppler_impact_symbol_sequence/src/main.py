@@ -34,7 +34,7 @@ if __name__ == '__main__':
     dop_rate_tx=find_doppler_rate(TX_TIME, rel_doppler_rate_vec, time_vec)*symbol_cfg.f
     
     # calculate estimated symbols, fft_abs
-    #results=evaluates_packet(symbol_cfg,NUMBER_OF_SYMBOLS,TX_TIME,time_vec,rel_doppler_rate_vec)
     fft_abs_vec,estimated_symbol_vec=evaluates_packet(symbol_cfg,NUMBER_OF_SYMBOLS,TX_TIME,time_vec,rel_doppler_rate_vec)
-    # plots
+    
+    # plot
     plot_doppler_impact(symbol_cfg, fft_abs_vec,estimated_symbol_vec,NUM_BINS_AROUND_SYMBOL, image_folder)
