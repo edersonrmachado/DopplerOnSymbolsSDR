@@ -80,7 +80,8 @@ def plot_doppler_impact(symbol_cfg, fft_abs_vec,estimated_symbol_vec, num_bins_a
             ax.plot(cut_samples,cut_fft_abs_vec[i], zs=1+i, zdir='y', color=fft_color,linestyle='-',lw=lwid_plots,alpha=alpha_value)
     xticks_vec.sort()
     ax.set_xticks(xticks_vec)
-        
+    
+    
     # plot ticks values in red if errors, otherwise black
     if len(one_shift_error_symbol_idxs) > 0:
         ax.set_yticks([1, *one_shift_error_symbol_idxs, len(symbol_idx)])
@@ -95,6 +96,15 @@ def plot_doppler_impact(symbol_cfg, fft_abs_vec,estimated_symbol_vec, num_bins_a
         for i in range(len(xticks)):
             if int(xticks[i]) in one_shift_error_symbol_values:
                 xticks_labels[i].set_color('red')
+        
+        # evaluates first error and peridodicity
+        first_error=one_shift_error_symbol_idxs[0]
+        print(f"First Symbol Shift Error Due to Doppler [e0]: {first_error}")
+        print(f"Number maximum of symbols before a Doppler error [nmax]: {first_error-1}")
+        one_shift_error_symbol_idxs_arr=np.array(one_shift_error_symbol_idxs)
+        one_shift_error_periodicity=round(np.mean(np.diff(one_shift_error_symbol_idxs_arr)))
+        print(f"One shift error periodicity [pe]: {one_shift_error_periodicity}")
+        
     else:
         yticks_vec = [1,len(symbol_idx)]
         for i in range(no_error_ytick_step, len(symbol_idx) + 1,no_error_ytick_step):
@@ -111,32 +121,34 @@ def plot_doppler_impact(symbol_cfg, fft_abs_vec,estimated_symbol_vec, num_bins_a
     ax.tick_params(axis='y', labelsize=fontsize_ticks,pad=pad_ytick)  
     ax.tick_params(axis='z', labelsize=fontsize_ticks,pad=pad_ztick)      
     ax.set_zlabel(r"Normalized"+ "\n" +r"FFT $ \left | \tilde{C}[k,p] \right | $",fontsize=fontsize_label_titles,labelpad=pad_zlabel)
-    ax.set_xticklabels([]) 
+    
     
     # customize x-axis view
-    red_tick_start=((symbol_cfg.s-xticks_vec[0])/2)+xticks_vec[0]
-    red_ticks_dist=(symbol_cfg.s-red_tick_start)/(len(one_shift_error_symbol_values))
-    i=0
-    for tick in xticks_vec:
-        if tick != xticks_vec[0] and tick != xticks_vec[-1] and tick != symbol_cfg.s:
-            ax.text(x=(red_tick_start+red_ticks_dist*i), y=ax.get_ylim()[0]+pad_xtick+1, z=ax.get_zlim()[0], 
-            s=str(tick), ha='right', va='top',fontsize=fontsize_ticks,color='red')
-            i=i+1
-        else:
-            ax.text(x=tick, y=ax.get_ylim()[0]+pad_xtick+1, z=ax.get_zlim()[0], 
-                s=str(tick), ha='right', va='top',fontsize=fontsize_ticks)
-        
+    if len(one_shift_error_symbol_idxs) > 0:
+        ax.set_xticklabels([]) 
+        red_tick_start=((symbol_cfg.s-xticks_vec[0])/2)+xticks_vec[0]
+        red_ticks_dist=(symbol_cfg.s-red_tick_start)/(len(one_shift_error_symbol_values))
+        i=0
+        for tick in xticks_vec:
+            if tick != xticks_vec[0] and tick != xticks_vec[-1] and tick != symbol_cfg.s:
+                ax.text(x=(red_tick_start+red_ticks_dist*i), y=ax.get_ylim()[0]+pad_xtick+1, z=ax.get_zlim()[0], 
+                s=str(tick), ha='right', va='top',fontsize=fontsize_ticks,color='red')
+                i=i+1
+            else:
+                ax.text(x=tick, y=ax.get_ylim()[0]+pad_xtick+1, z=ax.get_zlim()[0], 
+                    s=str(tick), ha='right', va='top',fontsize=fontsize_ticks)
+            
     # plot tick indicator in red (error symbols)
-    xticks = ax.get_xticks()
-    yticks = ax.get_yticks()
-    for tick_obj, tick_val in zip(ax.xaxis.get_major_ticks(), xticks):
-        if tick_val in one_shift_error_symbol_values:
-            tick_obj.tick1line.set_color('red')
-            tick_obj.tick2line.set_color('red')
-    for tick_obj, tick_val in zip(ax.yaxis.get_major_ticks(), yticks):
-        if tick_val in one_shift_error_symbol_idxs:
-            tick_obj.tick1line.set_color('red')
-            tick_obj.tick2line.set_color('red')
+        xticks = ax.get_xticks()
+        yticks = ax.get_yticks()
+        for tick_obj, tick_val in zip(ax.xaxis.get_major_ticks(), xticks):
+            if tick_val in one_shift_error_symbol_values:
+                tick_obj.tick1line.set_color('red')
+                tick_obj.tick2line.set_color('red')
+        for tick_obj, tick_val in zip(ax.yaxis.get_major_ticks(), yticks):
+            if tick_val in one_shift_error_symbol_idxs:
+                tick_obj.tick1line.set_color('red')
+                tick_obj.tick2line.set_color('red')
     
     # adjust fig size
     left=0.01
