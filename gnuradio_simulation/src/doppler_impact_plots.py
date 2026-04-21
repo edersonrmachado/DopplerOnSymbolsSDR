@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 
 
 # save the plots on `image_folder` if true
-SAVE_PLOTS=False
+SAVE_PLOTS=True
 
 # fig name
-fig_1='errors_occurance.pdf'
+fig_1='errors_occurance_gnu_simulation.pdf'
 
 def plot_doppler_impact(symbol_cfg, fft_abs_vec,estimated_symbol_vec, num_bins_around_symb, image_folder):
     """Generate plots and save [opt].
@@ -15,7 +15,7 @@ def plot_doppler_impact(symbol_cfg, fft_abs_vec,estimated_symbol_vec, num_bins_a
         symbol_cfg (LoraSymbolConfig): symbol config.
         fft_abs_vec:  (dtype=complex128).
         y (np.ndarray): symbol with noise (dtype=complex128).
-        num_bins_around_symb (int): limitates the FFT slice to show. 
+        num_bins_around_symb (int): limit the FFT slice to show. 
         image_folder (str): to save figures.  
     """
     
