@@ -111,7 +111,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '"../data/fft_mag.txt"'
+    value: '"../data/fft_test.txt"'
   states:
     bus_sink: false
     bus_source: false

@@ -2,6 +2,7 @@ import numpy as np
 from scipy.fftpack import fft
 
 
+
 # Earth's radius [m], gravity acc. [m/s^2] and lightspeed [m/s]
 #EARTH_RADIUS = 6378137     
 EARTH_RADIUS = 6371000     
@@ -106,13 +107,15 @@ def evaluates_packet(symbol_cfg,num_of_symbols,tx_time,time_vec,rel_doppler_rate
 
 
 def read_fft_file(filename):
-    """_summary_
+    """
+    Read the symbols fft magnitude from a file, estimate symbol values and return them as vectors.
 
     Args:
-        filename (_type_): _description_
+        filename (string): file to read.
 
     Returns:
-        _type_: _description_
+        fft_abs_vec (np.array): vec. of symbols fft magnitude.
+        estimated vector (np.array): vec. of estimated symbols.
     """
     
     fft_abs_vec = []
@@ -131,5 +134,5 @@ def read_fft_file(filename):
         # delete last symbol fft due to inconsistences
         if len(fft_abs_vec[-1]) !=len(fft_abs_vec[0]) :
             fft_abs_vec=fft_abs_vec[:-1] 
-        print(f"Num. symbols demodulated: {len(fft_abs_vec)}")            
+        print(f"Num. symbols demodulated: {len(fft_abs_vec)}")    
     return np.array(fft_abs_vec),np.array(estimated_symbol_vec)

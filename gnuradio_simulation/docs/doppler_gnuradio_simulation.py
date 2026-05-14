@@ -42,7 +42,7 @@ class doppler_gnuradio_simulation(gr.top_block):
         self.ldro = ldro = False
         self.impl_head = impl_head = True
         self.has_crc = has_crc = False
-        self.file_to_save_samples = file_to_save_samples = "../data/fft_mag.txt"
+        self.file_to_save_samples = file_to_save_samples = "../data/fft_test.txt"
         self.doppler_shift = doppler_shift = 0
         self.doppler_rate = doppler_rate = -140.28
         self.cr = cr = 1
