@@ -125,7 +125,7 @@ def read_fft_file(filename):
             line = line.strip()
             if line == "":
                 continue
-            fft_abs = np.array(line.split(","), dtype=float)
+            fft_abs = np.array([x for x in line.split(",") if x.strip() != ""], dtype=float)
             estimated_symbol=np.argmax(fft_abs)
             fft_abs_vec.append(fft_abs) # guarda em uma lista
             estimated_symbol_vec.append(estimated_symbol)

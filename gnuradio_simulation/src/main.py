@@ -11,13 +11,13 @@ image_folder="/home/ederson/Desktop/figures/"
 fft_file="../data/fft_mag.txt" 
 
 # symbol, spreading factor, bandwidth, freq  and sampling frequency [opt].
-symbol_cfg = LoraSymbolConfig(512, 10, 125E3,436.9e6)  
+symbol_cfg = LoraSymbolConfig(512, 11, 125E3,436.9e6)  
 
 # sat altitude, transmission time, and analysis duration
 SAT_ALTITUDE = 550e3
 TX_TIME= 0 
 TIME_INTERVAL=60
-NUMBER_OF_SYMBOLS=50
+NUMBER_OF_SYMBOLS=68
 NUM_BINS_AROUND_SYMBOL=10
 NUMBER_OF_EXPERIMENTS=1
 
