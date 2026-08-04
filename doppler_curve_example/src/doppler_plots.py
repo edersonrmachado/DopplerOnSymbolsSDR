@@ -52,20 +52,20 @@ def plot_doppler(rel_doppler_shift,rel_doppler_rate,time_vec, image_folder):
     ax1.set_xlim(np.min(time_vec),np.max(time_vec) )
     ax1.set_ylim(min_dop_shift+min_dop_shift*margin,max_dop_shift+max_dop_shift*margin )
     ax1.set_xlabel('Time (s)',fontsize=fontsize_labels)
-    ax1.set_ylabel('Static Doppler $\delta_F$ [ppm]', color=dop_shift_color,fontsize=fontsize_labels)
+    ax1.set_ylabel(r'Static Doppler $\delta_F$ [ppm]', color=dop_shift_color,fontsize=fontsize_labels)
     ax1.tick_params(axis='y', labelcolor=dop_shift_color,labelsize=fontsize_xticks)
-    ax1.text(t_max_dop_shift-(t_max_dop_shift/1.5), max_dop_shift+max_dop_shift*(0.1*margin)-1, '$\delta_F$', fontsize=fontsize_text2, ha='right', va='center')
+    ax1.text(t_max_dop_shift-(t_max_dop_shift/1.5), max_dop_shift+max_dop_shift*(0.1*margin)-1, r'$\delta_F$', fontsize=fontsize_text2, ha='right', va='center')
     ax1.grid(True)
     
     # doppler rate ppm/s
     ax2 = ax1.twinx()  
     ax2.plot(time_vec, rel_doppler_rate, color=dop_rate_color,linestyle='-.')
-    ax2.set_ylabel("Doppler rate ${\delta_F}'$ [ppm/s]", color=dop_rate_color, fontsize=fontsize_labels)
+    ax2.set_ylabel(r"Doppler rate ${\delta_F}'$ [ppm/s]", color=dop_rate_color, fontsize=fontsize_labels)
     ax2.tick_params(axis='y', labelcolor=dop_rate_color, labelsize=fontsize_xticks)
     ax1.tick_params(axis='x', labelsize=fontsize_xticks)
     ax2.text(t_min_dop_rate -50, min_dop_rate -0.05, f'Min: {min_dop_rate:.2f}', horizontalalignment='center', verticalalignment='top',fontsize=fontsize_text)
     ax2.set_ylim((min_dop_shift+min_dop_shift*margin)/20,(max_dop_shift+max_dop_shift*margin)/20)
-    ax2.text(t_min_dop_shift-(t_min_dop_shift/3), max_dop_rate-min_dop_rate*0.1+0.09, "${\delta_F}'$", fontsize=fontsize_text2, ha='right', va='center')
+    ax2.text(t_min_dop_shift-(t_min_dop_shift/3), max_dop_rate-min_dop_rate*0.1+0.09, r"${\delta_F}'$", fontsize=fontsize_text2, ha='right', va='center')
     
     # save option
     if SAVE_PLOTS:

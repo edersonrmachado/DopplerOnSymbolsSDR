@@ -4,7 +4,7 @@ from doppler_utils import relative_doppler_shift,relative_doppler_rate
 from doppler_plots import plot_doppler
 
 # image folder (to be replaced)
-image_folder="/home/ederson/Desktop/figures/" 
+image_folder="/home/vnr/Desktop/image_test_folder" 
 
 SAT_ALTITUDE=500000
 TIME_INTERVAL=600 
